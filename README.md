@@ -1,141 +1,267 @@
-# Simple RNN — IMDB Sentiment Analysis
+# 🧠 Simple RNN — IMDB Sentiment Analysis
 
-A Natural Language Processing project that uses a **Simple Recurrent Neural Network (RNN)** to perform binary sentiment classification on IMDB movie reviews.
+<p align="center">
 
-The project covers the complete workflow from text preprocessing and word embeddings to RNN model training and sentiment prediction.
+<img src="https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python&logoColor=white"/>
+<img src="https://img.shields.io/badge/TensorFlow-2.x-orange?style=for-the-badge&logo=tensorflow&logoColor=white"/>
+<img src="https://img.shields.io/badge/Keras-Deep%20Learning-red?style=for-the-badge&logo=keras&logoColor=white"/>
+<img src="https://img.shields.io/badge/NLP-Sentiment%20Analysis-purple?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/RNN-Simple%20RNN-green?style=for-the-badge"/>
 
----
+</p>
 
-## Project Overview
-
-Sentiment analysis is a Natural Language Processing task used to determine the emotional polarity of a piece of text.
-
-In this project, an RNN is trained on the **IMDB Movie Reviews dataset** to classify reviews into two categories:
-
-* **Positive**
-* **Negative**
-
-The project demonstrates how sequential text data can be processed and learned using recurrent neural networks.
+<p align="center">
+  <b>End-to-End Natural Language Processing Project using Simple Recurrent Neural Networks</b>
+</p>
 
 ---
 
-## Project Workflow
+## 📌 Overview
+
+**Simple RNN — IMDB Sentiment Analysis** is an NLP deep learning project that classifies movie reviews as either **Positive** or **Negative** using a **Simple Recurrent Neural Network (RNN)**.
+
+The project covers the complete pipeline:
 
 ```text
-IMDB Reviews
-      │
-      ▼
+Raw Text
+   ↓
 Text Preprocessing
-      │
-      ▼
+   ↓
 Tokenization
-      │
-      ▼
+   ↓
+Sequence Encoding
+   ↓
 Word Embedding
-      │
-      ▼
-Sequence Representation
-      │
-      ▼
+   ↓
 Simple RNN
-      │
-      ▼
-Dense Output Layer
-      │
-      ▼
+   ↓
+Binary Classification
+   ↓
 Sentiment Prediction
+```
+
+The objective is to understand how recurrent neural networks process sequential text and learn patterns that indicate sentiment.
+
+---
+
+## 🎯 Problem Statement
+
+Given a movie review, the model needs to determine whether the review expresses a **positive** or **negative** sentiment.
+
+### Example
+
+```text
+Input:
+"The movie was absolutely fantastic and the acting was brilliant."
+
+Output:
+🟢 Positive
+```
+
+```text
+Input:
+"The movie was extremely boring and disappointing."
+
+Output:
+🔴 Negative
 ```
 
 ---
 
-## Tech Stack
+## 🧩 Project Architecture
 
-* **Python**
-* **TensorFlow / Keras**
-* **NumPy**
-* **Pandas**
-* **NLP**
-* **Simple RNN**
-* **Word Embeddings**
-* **Jupyter Notebook**
+<p align="center">
+
+```mermaid
+flowchart LR
+    A[Movie Review] --> B[Text Preprocessing]
+    B --> C[Tokenization]
+    C --> D[Sequence Encoding]
+    D --> E[Embedding Layer]
+    E --> F[Simple RNN]
+    F --> G[Dense Layer]
+    G --> H[Sigmoid]
+    H --> I[Positive / Negative]
+```
+
+</p>
 
 ---
 
-## Project Structure
+## 🏗️ Model Architecture
+
+The neural network follows a sequence-processing architecture:
+
+```text
+Input Text
+     │
+     ▼
+Tokenization
+     │
+     ▼
+Embedding Layer
+     │
+     ▼
+Simple RNN
+     │
+     ▼
+Dense Layer
+     │
+     ▼
+Sigmoid Activation
+     │
+     ▼
+Sentiment
+```
+
+### Main Components
+
+| Component           | Purpose                                    |
+| ------------------- | ------------------------------------------ |
+| **Tokenizer**       | Converts words into numerical tokens       |
+| **Padding**         | Makes sequences equal in length            |
+| **Embedding Layer** | Converts tokens into dense vectors         |
+| **Simple RNN**      | Learns sequential relationships            |
+| **Dense Layer**     | Performs final classification              |
+| **Sigmoid**         | Produces binary classification probability |
+
+---
+
+## 📊 Dataset
+
+The project uses the **IMDB Movie Reviews dataset**, a standard benchmark dataset for sentiment classification.
+
+The task is binary classification:
+
+| Label | Sentiment   |
+| ----: | ----------- |
+|   `0` | 🔴 Negative |
+|   `1` | 🟢 Positive |
+
+The model learns linguistic patterns from movie reviews and uses those patterns to predict the sentiment of unseen text.
+
+---
+
+## 📂 Project Structure
 
 ```text
 NLP-RNN-PROJECT/
 │
-├── embedding.ipynb
-├── simplernn.ipynb
-├── prediction.ipynb
-├── main.py
-├── requirements.txt
-├── simple_rnn_imdb.h5
-└── README.md
+├── 📓 embedding.ipynb
+│
+├── 📓 simplernn.ipynb
+│
+├── 📓 prediction.ipynb
+│
+├── 🐍 main.py
+│
+├── 📦 requirements.txt
+│
+├── 🧠 simple_rnn_imdb.h5
+│
+└── 📖 README.md
 ```
 
 ### File Description
 
-| File                 | Description                                                    |
-| -------------------- | -------------------------------------------------------------- |
-| `embedding.ipynb`    | Exploratory work related to text representation and embeddings |
-| `simplernn.ipynb`    | Training and evaluation of the Simple RNN model                |
-| `prediction.ipynb`   | Testing the trained model on new reviews                       |
-| `main.py`            | Python script for running the prediction workflow              |
-| `requirements.txt`   | Required Python dependencies                                   |
-| `simple_rnn_imdb.h5` | Trained RNN model                                              |
+| File                 | Description                                   |
+| -------------------- | --------------------------------------------- |
+| `embedding.ipynb`    | Text representation and embedding experiments |
+| `simplernn.ipynb`    | RNN model development and training            |
+| `prediction.ipynb`   | Sentiment prediction using the trained model  |
+| `main.py`            | Python inference workflow                     |
+| `requirements.txt`   | Project dependencies                          |
+| `simple_rnn_imdb.h5` | Trained Simple RNN model                      |
+| `README.md`          | Project documentation                         |
 
 ---
 
-## Model Architecture
+# 🔬 NLP Pipeline
 
-The project uses a Simple RNN-based architecture for sequence classification.
+## 1️⃣ Text Preprocessing
+
+Raw movie reviews are converted into a format suitable for machine learning.
 
 ```text
-Input Text
-    │
-    ▼
+Raw Text
+   ↓
+Cleaning
+   ↓
 Tokenization
-    │
-    ▼
-Embedding Layer
-    │
-    ▼
-Simple RNN Layer
-    │
-    ▼
-Dense Layer
-    │
-    ▼
-Sigmoid Output
-    │
-    ▼
-Positive / Negative
+   ↓
+Numerical Representation
 ```
-
-The **Embedding Layer** converts tokenized words into dense vector representations, while the **Simple RNN** processes the sequence and learns contextual patterns from the review.
-
-The final output uses a sigmoid-based binary classification approach.
 
 ---
 
-## Dataset
+## 2️⃣ Tokenization
 
-The project uses the **IMDB Movie Reviews dataset**, a widely used benchmark dataset for binary sentiment classification.
-
-Each review is associated with one of two labels:
+Words are converted into integer IDs.
 
 ```text
-0 → Negative
-1 → Positive
+"this movie is amazing"
+
+        ↓
+
+[45, 231, 18, 892]
 ```
 
-The model learns patterns in the text that help distinguish positive reviews from negative reviews.
+Each unique word is mapped to a numerical representation.
 
 ---
 
-## Installation
+## 3️⃣ Sequence Padding
+
+Reviews can have different lengths, so sequences are padded to a fixed length.
+
+```text
+Review A → [12, 45, 89, 23]
+
+Review B → [17, 91]
+
+After Padding →
+
+Review A → [12, 45, 89, 23]
+Review B → [17, 91,  0,  0]
+```
+
+---
+
+## 4️⃣ Word Embeddings
+
+The embedding layer transforms integer tokens into dense numerical vectors.
+
+```text
+Word ID
+   ↓
+Embedding Layer
+   ↓
+Dense Vector Representation
+```
+
+This allows the neural network to learn meaningful representations of words.
+
+---
+
+## 5️⃣ Simple RNN
+
+The RNN processes the sequence step-by-step while maintaining information from previous words.
+
+```text
+Word₁ → Word₂ → Word₃ → Word₄
+  ↓       ↓       ↓       ↓
+ h₁  →   h₂  →   h₃  →   h₄
+                    ↓
+              Final State
+                    ↓
+              Classification
+```
+
+This sequential processing makes RNNs suitable for text and other sequential data.
+
+---
+
+# 🚀 Installation
 
 Clone the repository:
 
@@ -143,7 +269,7 @@ Clone the repository:
 git clone https://github.com/24f2006816/NLP-RNN-PROJECT.git
 ```
 
-Move into the project directory:
+Navigate to the project:
 
 ```bash
 cd NLP-RNN-PROJECT
@@ -155,19 +281,19 @@ Create a virtual environment:
 python -m venv venv
 ```
 
-Activate it on Linux/macOS:
+### Linux / macOS
 
 ```bash
 source venv/bin/activate
 ```
 
-For Windows:
+### Windows
 
 ```bash
 venv\Scripts\activate
 ```
 
-Install the dependencies:
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
@@ -175,17 +301,15 @@ pip install -r requirements.txt
 
 ---
 
-## Running the Project
+# ▶️ Running the Project
 
 ### Using Jupyter Notebook
-
-Start Jupyter:
 
 ```bash
 jupyter notebook
 ```
 
-Then run the notebooks in the following order:
+Run the notebooks in this order:
 
 ```text
 1. embedding.ipynb
@@ -193,11 +317,7 @@ Then run the notebooks in the following order:
 3. prediction.ipynb
 ```
 
----
-
 ### Using Python
-
-The prediction workflow can also be executed using:
 
 ```bash
 python main.py
@@ -205,31 +325,31 @@ python main.py
 
 ---
 
-## Example
+# 🧪 Example Predictions
 
-The trained model can be used to classify a new movie review.
-
-### Positive Review
+### 🟢 Positive Review
 
 ```text
-"The movie was absolutely amazing. The story was engaging
+"This movie was fantastic. The story was engaging
 and the performances were excellent."
 ```
 
-Expected sentiment:
+**Prediction:**
 
 ```text
 Positive
 ```
 
-### Negative Review
+---
+
+### 🔴 Negative Review
 
 ```text
-"The movie was boring and poorly written.
-I did not enjoy watching it."
+"The movie was boring, poorly written and
+not worth watching."
 ```
 
-Expected sentiment:
+**Prediction:**
 
 ```text
 Negative
@@ -237,75 +357,105 @@ Negative
 
 ---
 
-## Key Concepts Covered
+# 📈 Key Concepts
 
-This project provides practical implementation of several NLP and Deep Learning concepts:
+This project demonstrates practical implementation of:
 
 * Natural Language Processing
 * Text preprocessing
 * Tokenization
-* Vocabulary creation
-* Sequence representation
+* Sequence encoding
+* Padding
 * Word embeddings
 * Recurrent Neural Networks
-* Simple RNN architecture
+* Simple RNN
 * Binary classification
 * Sentiment analysis
+* Deep learning
 * Model training
-* Model evaluation
 * Model inference
 
 ---
 
-## Learning Objectives
+# 🧠 What I Learned
 
-Through this project, the following concepts are explored:
+Through this project, I explored:
 
-1. Understanding how text can be converted into numerical representations.
-2. Understanding word embeddings.
-3. Working with sequential text data.
-4. Understanding the basic architecture of RNNs.
-5. Training an RNN for binary classification.
-6. Using a trained model for real-world text prediction.
-7. Building an end-to-end NLP deep learning pipeline.
+* How machines represent natural language numerically
+* How tokenization works
+* Why sequence padding is required
+* How word embeddings represent words
+* How RNNs process sequential information
+* How neural networks can perform sentiment classification
+* How a trained model can be used for inference
 
 ---
 
-## Future Improvements
+# 🔮 Future Improvements
 
-The project can be extended with more advanced NLP architectures such as:
+The current Simple RNN architecture can be extended to more advanced NLP architectures:
 
-* LSTM
-* GRU
-* Bidirectional RNN
-* Bidirectional LSTM
-* Attention Mechanisms
-* Transformer-based models
-* BERT
-* DistilBERT
+```text
+Simple RNN
+    │
+    ├── LSTM
+    │
+    ├── GRU
+    │
+    ├── Bidirectional RNN
+    │
+    ├── Attention
+    │
+    └── Transformers
+            │
+            ├── BERT
+            ├── DistilBERT
+            └── Modern LLMs
+```
 
-Additional improvements could include:
+Potential improvements:
 
 * Hyperparameter tuning
-* Better text preprocessing
-* Model performance visualization
-* REST API deployment
-* Streamlit web application
-* Dockerization
+* Better preprocessing
+* LSTM/GRU implementation
+* Bidirectional RNN
+* Attention mechanism
+* Transformer-based sentiment classification
+* REST API
+* Streamlit interface
+* Docker deployment
 * Cloud deployment
+* Model performance visualization
 
 ---
 
-## Author
+# 🛠️ Tech Stack
 
-**Pratyaksh Pandey**
+<p align="center">
 
-IIT Madras — BS in Data Science and Applications
+<img src="https://skillicons.dev/icons?i=python,tensorflow,git,github,jupyter" />
 
-GitHub: [24f2006816](https://github.com/24f2006816)
+</p>
 
 ---
 
-## License
+# 👨‍💻 Author
 
-This project is intended for educational and learning purposes.
+### Pratyaksh Pandey
+
+**IIT Madras — BS in Data Science and Applications**
+
+GitHub:
+https://github.com/24f2006816
+
+---
+
+# ⭐ If You Find This Project Useful
+
+If this project helped you understand **RNNs, NLP, or sentiment analysis**, consider giving the repository a ⭐.
+
+---
+
+## 📜 License
+
+This project is created for **educational and learning purposes**.
